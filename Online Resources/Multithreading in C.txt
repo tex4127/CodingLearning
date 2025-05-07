@@ -1,0 +1,18 @@
+Multithreading in c (and in c++) can be accomplished using pthreads.
+
+To simplify learning/relearning this iformation later, I complied a list below
+of references to good sources on the matter. It seems that pthreads is shipped
+with gcc and c++, so as long as we use the GNU compilers, we should be fine!
+
+Function Pointers:
+https://www.geeksforgeeks.org/function-pointer-in-c/
+
+Geeks for Geeks Multithreading docs using pthreads
+https://www.geeksforgeeks.org/multithreading-in-c/
+
+Some other useful stuff
+time.h Lib refernce:
+https://www.geeksforgeeks.org/time-h-header-file-in-c-with-examples/
+Recognizing what os you are compiling for:
+https://www.geeksforgeeks.org/how-to-detect-operating-system-through-a-c-program/
+

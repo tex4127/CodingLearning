@@ -1,0 +1,40 @@
+**We will come back to formatting this header later**
+
+Book Title 	- Effective C
+Author 		- Ropbert C. Seacord
+Chapter		- 1 Getting Started with C
+
+
+|---------------------------------------------------------------|
+|								|
+|	TABLE OF CONTENTS					|
+|	1) Developing Your First Program			|
+|								|
+|---------------------------------------------------------------|
+
+|---------------------------------------------------------------|
+|								|
+|	1) Developing Your First Program			|
+|								|
+|---------------------------------------------------------------|
+
+C is focussed on portablility. There are 5 main topics we need to
+watch for regrading this:
+
+1) Implementation-Defined Behavior
+This is defined as program behavior thats not specified by the C Standard 
+and might offer different results among implementations but has consistent,
+documented behavior within its implementation. For example bits in a byte.
+
+Coming from the firmware/micro controller world, this could be 8 bits per byte 
+while an os is 32 or 64 bits per byte. Arduinos use 8 bit values while Cortex M7
+processors like the one found on the Teensy 4.1 use 32 bit bytes. This makes a load
+of difference when determining how to store different data types and other general 
+operations that seem trivial but the results might differ.
+
+We should try to avoid writing code that is subject to this, but it is mostly 
+a non-issue and there are clever ways to handle these cases in the preprocessor.
+
+2) Unspecified Behavior
+
+

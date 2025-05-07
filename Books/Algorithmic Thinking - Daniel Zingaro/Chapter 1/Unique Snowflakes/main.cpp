@@ -46,7 +46,7 @@ typedef struct snowflake_n
 /// @param node2 second node for comparison (Data of the node technically)
 /// @param start the initial index at which we will start for node 1
 /// @return 1 if identical pair is found 0 if not
-int identicalLeft(long* node1, long* node2, int start)
+int identicalLeft(long node1[], long node2[], int start)
 {
     int offset, index;
     for (offset = 0; offset < 6; offset++)
@@ -54,7 +54,7 @@ int identicalLeft(long* node1, long* node2, int start)
         index = start - offset;
         if(index <0)
             index += 6;
-        if(node2[offset] != node2[index])
+        if(node1[offset] != node2[index])
             return 0;
     }
     return 1;
@@ -65,12 +65,12 @@ int identicalLeft(long* node1, long* node2, int start)
 /// @param node2 second node for comparsion (Data of the node technically)
 /// @param start ths intial index at which we will start for node 1
 /// @return 1 if identical pair found 0 if not
-int identicalRight(long* node1, long* node2, int start)
+int identicalRight(long node1[], long node2[], int start)
 {
     int offset;
     for (offset = 0; offset < 6; offset++)
     {
-        if(node1[offset] != node2[(offset + start)%6]);
+        if(node1[offset] != node2[(offset + start)%6])
             return 0;
     }
     return 1;
@@ -127,18 +127,19 @@ int main()
     static snowflake_n* snowflakes[SIZE] = {NULL};
     snowflake_n* snow;
     //Get how many snowlakes we will take in
-    scanf("%i", N);
+    scanf("%ld", &N);
     //Read all the data for our snowflakes into our linked list
     for (i = 0; i < N; i++)
     {
         snow = (snowflake_n*)malloc(sizeof(snowflake_n));
         for(j=0;j<6;j++)
-            scanf("%i", snow->data[j]);
+            scanf("%ld", &snow->data[j]);
         snowflakeCode = oaat((char*)snow, sizeof(snowflake_n), 17);
         snow->next = snowflakes[snowflakeCode];
         snowflakes[snowflakeCode] = snow;
     }
     //Look for identical snowflakes
-
+    identifyIdentical(snowflakes);
+    //printf("No two snowflakes are alike.\n");
     return 0;
 }
